@@ -24,6 +24,10 @@ so I can play a game a game,
 I want to choose my icon.
 
 As a hardcore gamer,
+so I can play a game of noughts and crosses,
+I want to access a grid
+
+As a hardcore gamer,
 so I can take a turn,
 I want to choose a square on the grid.
 
@@ -43,3 +47,8 @@ As a hardcore gamer,
 so I can draw,
 I want the game to finish when all spaces are taken.
 ```
+
+Moving Forward
+--------------
+
+Need to develop the game class which has turns and the rule class which validates moves, win conditions etc. Plan to work on this in the near future.
