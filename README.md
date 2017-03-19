@@ -48,7 +48,28 @@ so I can draw,
 I want the game to finish when all spaces are taken.
 ```
 
-Moving Forward
---------------
+Getting Started
+---------------
+```
+-$ git clone git@github.com:mikefieldmay/tech_test_noughts_and_crosses.git
+-$ cd tech_test_gilded_rose
+-$ open SpecRunner.html
+```
 
-Need to develop the game class which has turns and the rule class which validates moves, win conditions etc. Plan to work on this in the near future.
+Challenges
+---------
+Whilst initially seeming quite simple, game logic can quickly become very complex. It's always interesting to design games in an object oriented way.
+
+Future improvements
+---------------
+In it's current iteration my  noughts and crosses game doesn't do anything. I'd like to continue to add functionality to it in an object oriented way. Having created the player and the grid I feel the next move would be to create and actual game object that let's players add items to the grid and then afterwards implement the rules.
+
+Built With
+---------
+
+- javascript
+- Jasmine 2.5.2
+
+Authors
+-------
+Mike Field-May
