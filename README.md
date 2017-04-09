@@ -56,7 +56,7 @@ Getting Started
 ---------------
 ```
 -$ git clone git@github.com:mikefieldmay/tech_test_noughts_and_crosses.git
--$ cd tech_test_gilded_rose
+-$ cd tech_test_noughts_and_crosses
 -$ open SpecRunner.html
 ```
 
@@ -66,7 +66,7 @@ Whilst initially seeming quite simple, game logic can quickly become very comple
 
 Future improvements
 ---------------
-In it's current iteration my  noughts and crosses game doesn't do anything. I'd like to continue to add functionality to it in an object oriented way. Having created the player and the grid I feel the next move would be to create and actual game object that let's players add items to the grid and then afterwards implement the rules.
+Currently all the logic exists for my noughts and crosses game. It now needs an interface and jquery in order to be fully functional, but having worked out the logic I feel this isn't too difficult.
 
 Built With
 ---------

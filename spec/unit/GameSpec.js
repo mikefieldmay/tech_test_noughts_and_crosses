@@ -29,11 +29,14 @@ describe('Game', function(){
     });
   });
 
-  describe("#switchTurn", function(){
-
+  describe("#finishTurn", function(){
     it("changes the players turn", function(){
       game.finishTurn();
       expect(game._player1Turn).toEqual(false);
+    });
+    it("checks if the game has been won", function(){
+      game.finishTurn();
+      expect(ruleBookSpy.isWin).toHaveBeenCalled();
     });
   });
 

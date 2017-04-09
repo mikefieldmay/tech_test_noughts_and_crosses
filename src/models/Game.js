@@ -22,7 +22,15 @@
          }
        },
        finishTurn: function(){
-         this._player1Turn = false;
+        if(this._ruleBook.isWin() && this._player1Turn) {
+          alert("Player 1 Wins! Refresh the browser to play again!");
+        } else if (this._ruleBook.isWin() && !this._player1Turn) {
+          alert("Player 2 Wins! Refresh the browser to play again!");
+        } else if(this._ruleBook.isDraw()){
+          alert("Game is a Draw! Refresh the browser to play again!");
+        } else {
+            this._player1Turn ? this._player1Turn = false : this._player1Turn = true;
+        }
        }
     };
 
