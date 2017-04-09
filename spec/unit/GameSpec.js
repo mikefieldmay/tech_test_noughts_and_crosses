@@ -8,9 +8,9 @@ describe('Game', function(){
   beforeEach(function(){
       player1Spy = jasmine.createSpyObj('player1Spy', ['symbol']);
       player2Spy = jasmine.createSpyObj('player2Spy', ['symbol']);
-
+      ruleBookSpy = jasmine.createSpyObj('ruleBookSpy', ['isWin']);
       gridSpy = jasmine.createSpyObj('gridSpy', ['add_to_grid']);
-      game = new Game(player1Spy, player2Spy, gridSpy);
+      game = new Game(player1Spy, player2Spy, gridSpy, ruleBookSpy);
     });
 
   describe("default", function(){
@@ -23,6 +23,9 @@ describe('Game', function(){
     });
     it("it sets player1's turn to true", function(){
       expect(game._player1Turn).toEqual(true);
+    });
+    it("it is instantiated with a rulebook", function(){
+      expect(game._ruleBook).toEqual(ruleBookSpy);
     });
   });
 
