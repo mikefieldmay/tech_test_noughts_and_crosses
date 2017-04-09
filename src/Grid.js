@@ -17,15 +17,28 @@
       return this._bottom_row;
     },
     add_to_top_row: function(symbol, position){
-      this.top_row()[position] = symbol;
+      if (this.top_row()[position] != '') {
+        alert('That space has been taken. Please choose again!')
+      } else {
+        this.top_row()[position] = symbol;
+      }
     },
     add_to_middle_row: function(symbol, position){
-      this.top_row()[position] = symbol;
+      if (this.middle_row()[position] != '') {
+        alert('That space has been taken. Please choose again!')
+    } else {
+        this.middle_row()[position] = symbol;
+    }
     },
     add_to_bottom_row: function(symbol, position){
-      this.top_row()[position] = symbol;
-    },
+      if (this.bottom_row()[position] != '') {
+        alert('That space has been taken. Please choose again!')
+    } else {
+      this.bottom_row()[position] = symbol;
+    }
+  }
   };
+
 
   exports.Grid = Grid;
 
