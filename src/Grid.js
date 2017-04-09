@@ -1,42 +1,20 @@
 (function(exports){
 
   function Grid() {
-    this._top_row = ['', '', ''];
-    this._middle_row = ['', '', ''];
-    this._bottom_row = ['', '', ''];
+    this._grid = ['', '', '', '', '', '', '', '', ''];
   }
 
   Grid.prototype = {
-    top_row: function(){
-      return this._top_row;
+    view_grid: function(){
+      return this._grid;
     },
-    middle_row: function(){
-      return this._middle_row;
-    },
-    bottom_row: function(){
-      return this._bottom_row;
-    },
-    add_to_top_row: function(symbol, position){
-      if (this.top_row()[position] != '') {
+    add_to_grid: function(symbol, position){
+      if (this.view_grid()[position] != '') {
         alert('That space has been taken. Please choose again!')
       } else {
-        this.top_row()[position] = symbol;
+        this.view_grid()[position] = symbol;
       }
-    },
-    add_to_middle_row: function(symbol, position){
-      if (this.middle_row()[position] != '') {
-        alert('That space has been taken. Please choose again!')
-    } else {
-        this.middle_row()[position] = symbol;
     }
-    },
-    add_to_bottom_row: function(symbol, position){
-      if (this.bottom_row()[position] != '') {
-        alert('That space has been taken. Please choose again!')
-    } else {
-      this.bottom_row()[position] = symbol;
-    }
-  }
   };
 
 
