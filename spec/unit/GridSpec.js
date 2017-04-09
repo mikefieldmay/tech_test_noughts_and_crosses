@@ -16,14 +16,14 @@ describe('Grid', function(){
 
   describe('default', function(){
     it('has an empty grid', function(){
-      expect(grid.view_grid()).toEqual(empty_grid);
+      expect(grid.viewGrid()).toEqual(empty_grid);
     });
   });
 
   describe('add to grid', function(){
     it('adds a symbol to the top row', function(){
       grid.add_to_grid('X', 2);
-      expect(grid.view_grid()).toEqual(row_with_symbol);
+      expect(grid.viewGrid()).toEqual(row_with_symbol);
     });
     it('raises an alert if the space is taken', function(){
       spyOn(window, 'alert');

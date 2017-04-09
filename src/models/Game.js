@@ -4,20 +4,24 @@
     this._player1 = player1;
     this._player2 = player2;
     this._grid = grid;
-    this.player1_turn = true;
+    this._player1Turn = true;
   }
 
   Game.prototype = {
     takeTurn: function(num){
       var symbol = this.symbolCheck()
       this._grid.add_to_grid(symbol, num)
+      this.finishTurn()
     },
     symbolCheck: function(){
-        if (this.player1_turn) {
+        if (this._player1Turn) {
           return this._player1.symbol()
         } else {
            return this._player2.symbol();
          }
+       },
+       finishTurn: function(){
+         this._player1Turn = false
        }
     };
 

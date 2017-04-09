@@ -5,14 +5,14 @@
   }
 
   Grid.prototype = {
-    view_grid: function(){
+    viewGrid: function(){
       return this._grid;
     },
     add_to_grid: function(symbol, position){
-      if (this.view_grid()[position] != '') {
+      if (this.viewGrid()[position] != '') {
         alert('That space has been taken. Please choose again!')
       } else {
-        this.view_grid()[position] = symbol;
+        this.viewGrid()[position] = symbol;
       }
     }
   };

@@ -22,20 +22,27 @@ describe('Game', function(){
       expect(game._grid).toEqual(gridSpy);
     });
     it("it sets player1's turn to true", function(){
-      console.log(game);
-      expect(game.player1_turn).toEqual(true);
+      expect(game._player1Turn).toEqual(true);
     });
   });
 
-  describe('take_turn', function(){
+  describe("#switchTurn", function(){
+
+    it("changes the players turn", function(){
+      game.finishTurn();
+      expect(game._player1Turn).toEqual(false);
+    });
+  });
+
+  describe('#take_turn', function(){
     it('checks the players symbol', function(){
-      game.takeTurn(1)
-      expect(player1Spy.symbol).toHaveBeenCalled()
-    })
+      game.takeTurn(1);
+      expect(player1Spy.symbol).toHaveBeenCalled();
+    });
     it('adds a symbol to the grid', function(){
-      game.takeTurn(1)
-      expect(gridSpy.add_to_grid).toHaveBeenCalled()
-    })
-  })
+      game.takeTurn(1);
+      expect(gridSpy.add_to_grid).toHaveBeenCalled();
+    });
+  });
 
 });

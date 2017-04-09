@@ -46,6 +46,10 @@ I want the game to end if my opponent gets 3 in a row.
 As a hardcore gamer,
 so I can draw,
 I want the game to finish when all spaces are taken.
+
+As a hardcore gamer,
+so I can see what I'm doing,
+I want the game to have a nice display.
 ```
 
 Getting Started
