@@ -69,6 +69,20 @@ describe('Game', function(){
       game.takeTurn(0);
       expect(gridSpy.add_to_grid).toHaveBeenCalled();
     });
+    it('raises an error if the grid position is taken', function(){
+      spyOn(window, 'alert');
+      gridSpy.viewGrid.and.callFake(function() { return ['X'] });
+      game.takeTurn(0);
+      var alert = 'That space has been taken. Please choose again!';
+      expect(window.alert).toHaveBeenCalledWith(alert);
+    });
+    it('sets invalidMove to true if grid position is taken', function(){
+      spyOn(window, 'alert');
+      gridSpy.viewGrid.and.callFake(function() { return ['X'] });
+      game.takeTurn(0);
+      var alert = 'That space has been taken. Please choose again!';
+      expect(game.invalidMove).toEqual(true)
+    });
   });
 
 });

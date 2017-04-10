@@ -7,7 +7,7 @@
     this._ruleBook = ruleBook;
     this._player1Turn = true;
     this._gameOver = false;
-    this._falseMove = false
+    this.invalidMove = false
   }
 
   Game.prototype = {
@@ -15,9 +15,9 @@
       var symbol = this.symbolCheck();
       if (this._grid.viewGrid()[num] != '') {
         alert('That space has been taken. Please choose again!')
-        this._falseMove = true
+        this.invalidMove = true
       } else {
-        this._falseMove = false
+        this.invalidMove = false
         this._grid.add_to_grid(symbol, num);
       }
 

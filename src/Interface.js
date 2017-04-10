@@ -17,7 +17,7 @@ $(document).ready(function() {
     if(!game.isGameOver()){
       game.takeTurn(space);
       $(`#${space}`).html(`${grid.viewGrid()[space]}`);
-      if(!game._falseMove) game.finishTurn()
+      if(!game.invalidMove) game.finishTurn()
     }
   }
 });
