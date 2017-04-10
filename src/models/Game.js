@@ -6,14 +6,21 @@
     this._grid = grid;
     this._ruleBook = ruleBook;
     this._player1Turn = true;
-    this._gameOver = false
+    this._gameOver = false;
+    this._falseMove = false
   }
 
   Game.prototype = {
     takeTurn: function(num){
       var symbol = this.symbolCheck();
-      this._grid.add_to_grid(symbol, num);
-      this.finishTurn();
+      if (this._grid.viewGrid()[num] != '') {
+        alert('That space has been taken. Please choose again!')
+        this._falseMove = true
+      } else {
+        this._falseMove = false
+        this._grid.add_to_grid(symbol, num);
+      }
+
     },
     symbolCheck: function(){
         if (this._player1Turn) {

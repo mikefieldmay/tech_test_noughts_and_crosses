@@ -15,11 +15,8 @@ $(document).ready(function() {
   function choosingASpace(space){
     if(!game.isGameOver()){
       game.takeTurn(space);
-      if(game._player1Turn === true){
-        $(`#${space}`).html(`X`);
-      } else {
-        $(`#${space}`).html(`O`);
-      }
+      $(`#${space}`).html(`${grid.viewGrid()[space]}`);
+      if(!game._falseMove) game.finishTurn()
     }
   }
 });
