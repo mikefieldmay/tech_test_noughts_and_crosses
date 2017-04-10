@@ -9,7 +9,7 @@ describe('Game', function(){
       player1Spy = jasmine.createSpyObj('player1Spy', ['symbol']);
       player2Spy = jasmine.createSpyObj('player2Spy', ['symbol']);
       ruleBookSpy = jasmine.createSpyObj('ruleBookSpy', ['isWin', 'isDraw']);
-      gridSpy = jasmine.createSpyObj('gridSpy', ['add_to_grid']);
+      gridSpy = jasmine.createSpyObj('gridSpy', ['add_to_grid', 'viewGrid']);
       game = new Game(player1Spy, player2Spy, gridSpy, ruleBookSpy);
     });
 
@@ -27,6 +27,9 @@ describe('Game', function(){
     it("it is instantiated with a rulebook", function(){
       expect(game._ruleBook).toEqual(ruleBookSpy);
     });
+    it("it is not in game over state", function(){
+      expect(game.isGameOver()).toEqual(false);
+    });
   });
 
   describe("#finishTurn", function(){
@@ -42,14 +45,16 @@ describe('Game', function(){
       spyOn(window, 'alert');
       ruleBookSpy.isWin.and.callFake(function() { return true });
       game.finishTurn();
-      var alert = "Player 1 Wins! Refresh the browser to play again!"
+      var alert = "Player 1 Wins! Refresh the browser to play again!";
+      expect(game.isGameOver()).toEqual(true);
       expect(window.alert).toHaveBeenCalledWith(alert);
     });
     it("ends the game if the game is drawn", function(){
       spyOn(window, 'alert');
       ruleBookSpy.isDraw.and.callFake(function() { return true });
       game.finishTurn();
-      var alert = "Game is a Draw! Refresh the browser to play again!"
+      var alert = "Game is a Draw! Refresh the browser to play again!";
+      expect(game.isGameOver()).toEqual(true);
       expect(window.alert).toHaveBeenCalledWith(alert);
     });
   });

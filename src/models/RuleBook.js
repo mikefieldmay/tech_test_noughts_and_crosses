@@ -1,24 +1,24 @@
 (function(exports){
 
-  function RuleBook(grid) {
-    this._grid = grid.viewGrid();
+  function RuleBook() {
     this._winX = ['X', 'X', 'X'];
     this._winO = ['O', 'O', 'O'];
     this._win = false;
-    this._draw = false
+    this._draw = false;
   }
 
   RuleBook.prototype = {
-    checkForWinner: function(){
+    checkForWinner: function(grid){
+      var grid = grid;
       var winningCombinations = [
-        [this._grid[0], this._grid[1], this._grid[2]],
-        [this._grid[3], this._grid[4], this._grid[5]],
-        [this._grid[6], this._grid[7], this._grid[8]],
-        [this._grid[0], this._grid[3], this._grid[6]],
-        [this._grid[1], this._grid[4], this._grid[7]],
-        [this._grid[2], this._grid[5], this._grid[8]],
-        [this._grid[0], this._grid[4], this._grid[8]],
-        [this._grid[6], this._grid[4], this._grid[2]]
+        [grid[0], grid[1], grid[2]],
+        [grid[3], grid[4], grid[5]],
+        [grid[6], grid[7], grid[8]],
+        [grid[0], grid[3], grid[6]],
+        [grid[1], grid[4], grid[7]],
+        [grid[2], grid[5], grid[8]],
+        [grid[0], grid[4], grid[8]],
+        [grid[6], grid[4], grid[2]]
       ];
       for(var i = 0; i < winningCombinations.length; i++) {
         if ( winningCombinations[i].join() == this._winX.join() || winningCombinations[i].join() == this._winO.join() ) {
@@ -26,19 +26,22 @@
         }
       }
     },
-    isWin: function(){
-      this.checkForWinner();
+    isWin: function(grid){
+      this.checkForWinner(grid);
       return this._win;
     },
-    checkForDraw: function(){
-      if (!this._grid.includes('') && this._win === false ){
+    checkForDraw: function(grid){
+      console.log(grid);
+      var currentGrid = grid
+      if (!currentGrid.includes('') && this._win === false ){
         this._draw = true
       } else {
         this._draw = false
       }
     },
-    isDraw: function(){
-      this.checkForDraw()
+    isDraw: function(grid){
+      var currentGrid = grid
+      this.checkForDraw(currentGrid)
       return this._draw
     }
   };

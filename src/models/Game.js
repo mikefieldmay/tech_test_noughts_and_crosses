@@ -6,6 +6,7 @@
     this._grid = grid;
     this._ruleBook = ruleBook;
     this._player1Turn = true;
+    this._gameOver = false
   }
 
   Game.prototype = {
@@ -22,16 +23,23 @@
          }
        },
        finishTurn: function(){
-        if(this._ruleBook.isWin() && this._player1Turn) {
+        var currentGrid = this._grid.viewGrid();
+        if(this._ruleBook.isWin(currentGrid) && this._player1Turn) {
+          this._gameOver = true;
           alert("Player 1 Wins! Refresh the browser to play again!");
-        } else if (this._ruleBook.isWin() && !this._player1Turn) {
+        } else if (this._ruleBook.isWin(currentGrid) && !this._player1Turn) {
+          this._gameOver = true;
           alert("Player 2 Wins! Refresh the browser to play again!");
-        } else if(this._ruleBook.isDraw()){
+        } else if(this._ruleBook.isDraw(currentGrid)){
+          this._gameOver = true
           alert("Game is a Draw! Refresh the browser to play again!");
         } else {
             this._player1Turn ? this._player1Turn = false : this._player1Turn = true;
         }
-       }
+      },
+      isGameOver: function() {
+        return this._gameOver
+      }
     };
 
   exports.Game = Game;
