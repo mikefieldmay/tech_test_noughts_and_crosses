@@ -58,6 +58,7 @@ Getting Started
 -$ git clone git@github.com:mikefieldmay/tech_test_noughts_and_crosses.git
 -$ cd tech_test_noughts_and_crosses
 -$ open SpecRunner.html
+-$ open Index.html
 ```
 
 Challenges
@@ -66,7 +67,9 @@ Whilst initially seeming quite simple, game logic can quickly become very comple
 
 Future improvements
 ---------------
-Currently all the logic exists for my noughts and crosses game. It now needs an interface and jquery in order to be fully functional, but having worked out the logic I feel this isn't too difficult.
+The interface for my game is pretty basic at the moment. Future improvements would be to improve the interface and the alert messages rendered by the game. Potentially removing the alert messages from the Game and having the messages rendered in Interface.js.
+It would be nice if players could enter their names and that it was random who went first.
+It would be good to refactor some of the code as it is noticably clunky in certain places.
 
 Built With
 ---------
