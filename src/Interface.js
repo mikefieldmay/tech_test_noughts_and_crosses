@@ -8,6 +8,7 @@ $(document).ready(function() {
 
 
   $('td').on('click', function(){
+    $("#intro").hide();
     var space = $(this).attr('id');
     choosingASpace(parseInt(space));
   });

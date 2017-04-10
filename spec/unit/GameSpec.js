@@ -10,6 +10,7 @@ describe('Game', function(){
       player2Spy = jasmine.createSpyObj('player2Spy', ['symbol']);
       ruleBookSpy = jasmine.createSpyObj('ruleBookSpy', ['isWin', 'isDraw']);
       gridSpy = jasmine.createSpyObj('gridSpy', ['add_to_grid', 'viewGrid']);
+      gridSpy.viewGrid.and.callFake(function() { return [''] });
       game = new Game(player1Spy, player2Spy, gridSpy, ruleBookSpy);
     });
 
@@ -61,11 +62,11 @@ describe('Game', function(){
 
   describe('#take_turn', function(){
     it('checks the players symbol', function(){
-      game.takeTurn(1);
+      game.takeTurn(0);
       expect(player1Spy.symbol).toHaveBeenCalled();
     });
     it('adds a symbol to the grid', function(){
-      game.takeTurn(1);
+      game.takeTurn(0);
       expect(gridSpy.add_to_grid).toHaveBeenCalled();
     });
   });

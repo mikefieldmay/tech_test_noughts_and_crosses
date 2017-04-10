@@ -25,12 +25,5 @@ describe('Grid', function(){
       grid.add_to_grid('X', 2);
       expect(grid.viewGrid()).toEqual(row_with_symbol);
     });
-    it('raises an alert if the space is taken', function(){
-      spyOn(window, 'alert');
-      grid.add_to_grid('X', 2);
-      grid.add_to_grid('X', 2);
-      var alert = 'That space has been taken. Please choose again!';
-      expect(window.alert).toHaveBeenCalledWith(alert);
-    });
   });
 });
